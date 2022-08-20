@@ -14,6 +14,8 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
   return;
 };
 
+//errorhandlers
+
 export const errorHandler = (
   err: Error,
   req: Request,

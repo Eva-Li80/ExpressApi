@@ -1,4 +1,6 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
+//import { bookSchema } from "./booktype";
+import Joi from "joi";
 
 export const books = [
   {
@@ -26,10 +28,10 @@ export const getBookId = (req: Request, res: Response) => {
 };
 
 export const createBook = (req: Request, res: Response) => {
-  if (!req.body.name || req.body.name.length < 3) {
-    res.status(400).send("name must be minimum 3 letters");
-    return;
-  }
+  // if (!req.body.name || req.body.name.length < 3) {
+  //   res.status(400).send("name must be minimum 3 letters");
+  //   return;
+  // }
   const book = {
     id: books.length + 1,
     name: req.body.name,
@@ -58,3 +60,16 @@ export const deleteBook = (req: Request, res: Response) => {
   //   const book = req.body;
   //   res.status(201).send("created book");
 };
+
+// export const validateBody = (
+//   req: Request,
+//   res: Response,
+//   next: NextFunction
+// ) => {
+//   const result = bookSchema.validate(req.body);
+//   if (result.error) {
+//     res.status(400).json(result.error.message);
+//   } else {
+//     next();
+//   }
+// };

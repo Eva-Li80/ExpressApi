@@ -1,4 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
+require("express-async-errors");
 import {
   errorHandler,
   isLoggedIn,
@@ -8,6 +9,7 @@ import {
 import bookRouter from "./resourses/Books/books.router";
 
 const app = express();
+
 app.use(express.json());
 app.use("/api/books", bookRouter);
 

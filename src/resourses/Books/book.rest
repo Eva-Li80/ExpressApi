@@ -12,7 +12,7 @@ POST  http://localhost:3000/api/books/
 Content-Type: application/json
 
 {
-    "name": "ny bok3"
+  "name": "book 4"
 }
 
 ###
