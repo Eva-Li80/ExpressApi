@@ -13,3 +13,22 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
   next();
   return;
 };
+
+export const errorHandler = (
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  console.error(err.stack);
+  res.status(500).json("server error");
+};
+
+export const notFoundHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  console.log("Not found");
+  res.status(404).json("Not found");
+};
