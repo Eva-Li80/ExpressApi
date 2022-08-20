@@ -14,3 +14,17 @@ Content-Type: application/json
 {
     "name": "ny bok3"
 }
+
+###
+
+PUT  http://localhost:3000/api/books/1/
+Content-Type: application/json
+
+{
+    "name": "ny bok5"
+}
+
+###
+
+DELETE   http://localhost:3000/api/books/1/
+Content-Type: application/json

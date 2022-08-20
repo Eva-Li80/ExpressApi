@@ -3,15 +3,15 @@ import { Request, Response } from "express";
 export const books = [
   {
     id: 1,
-    name: "books1",
+    name: "book1",
   },
   {
     id: 2,
-    name: "books2",
+    name: "book2",
   },
   {
     id: 3,
-    name: "books3",
+    name: "book3",
   },
 ];
 
@@ -26,6 +26,10 @@ export const getBookId = (req: Request, res: Response) => {
 };
 
 export const createBook = (req: Request, res: Response) => {
+  if (!req.body.name || req.body.name.length < 3) {
+    res.status(400).send("name must be minimum 3 letters");
+    return;
+  }
   const book = {
     id: books.length + 1,
     name: req.body.name,
@@ -36,7 +40,7 @@ export const createBook = (req: Request, res: Response) => {
   //   res.status(201).send("created book");
 };
 
-export const putBook = (req: Request, res: Response) => {
+export const updateBook = (req: Request, res: Response) => {
   const book = books.find((b) => b.id === parseInt(req.params.id));
   if (!book) res.status(404).send("ej funnen");
 

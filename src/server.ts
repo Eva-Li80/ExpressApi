@@ -1,13 +1,11 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
+import { isLoggedIn, logger } from "./middlewares";
 import bookRouter from "./resourses/Books/books.router";
-//const Joi = require("joi");
+
 const app = express();
 app.use(express.json());
 app.use("/api/books", bookRouter);
-// app.use((req, res, next) => {
-//   console.log(req.method, req.path);
-//   next();
-//   return;
-// });
+
+app.use(logger);
 
 app.listen(3000, () => console.log("Running on: http://localhost:3000"));
